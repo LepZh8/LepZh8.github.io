@@ -20793,7 +20793,7 @@ a.catalog-more:hover {
 }
 
 #he-plugin-simple .sticker-important {
-  color: var(--anzhiyu-white) !important;
+  color: var(--anzhiyu-black) !important;
 }
 
 .s-sticker div[data-v-41ba7e2c]:not(:first-child):not(:last-child) {
@@ -20819,7 +20819,7 @@ body:has(.post-bg.nav-fixed) #he-plugin-simple .s-sticker div {
   color: var(--font-color) !important;
 }
 body:has(.post-bg) #he-plugin-simple .s-sticker div {
-  color: var(--anzhiyu-white) !important;
+  color: var(--anzhiyu-black) !important;
 }
 [data-theme="dark"] body:has(.post-bg) #he-plugin-simple .s-sticker div {
   color: var(--font-color) !important;

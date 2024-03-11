@@ -47,9 +47,9 @@
     
     
     <entry>
-      <title>关于本人</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title></title>
+      <link href="/bangumis/index.html"/>
+      <url>/bangumis/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -58,9 +58,9 @@
     
     
     <entry>
-      <title></title>
-      <link href="/bangumis/index.html"/>
-      <url>/bangumis/index.html</url>
+      <title>关于本人</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -80,6 +80,17 @@
     
     
     <entry>
+      <title>music</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[<hr>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>人生足迹</title>
       <link href="/collect/index.html"/>
       <url>/collect/index.html</url>
@@ -91,9 +102,9 @@
     
     
     <entry>
-      <title>music</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
+      <title>日常生活</title>
+      <link href="/dailyPhoto/index.html"/>
+      <url>/dailyPhoto/index.html</url>
       
         <content type="html"><![CDATA[<hr>]]></content>
       
@@ -113,31 +124,20 @@
     
     
     <entry>
-      <title>日常生活</title>
-      <link href="/dailyPhoto/index.html"/>
-      <url>/dailyPhoto/index.html</url>
-      
-        <content type="html"><![CDATA[<hr>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>世界各地风景</title>
-      <link href="/wordScenery/index.html"/>
-      <url>/wordScenery/index.html</url>
-      
-        <content type="html"><![CDATA[<hr>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>即刻短文</title>
       <link href="/essay/index.html"/>
       <url>/essay/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/cinemas/index.html"/>
+      <url>/cinemas/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -157,11 +157,11 @@
     
     
     <entry>
-      <title></title>
-      <link href="/cinemas/index.html"/>
-      <url>/cinemas/index.html</url>
+      <title>世界各地风景</title>
+      <link href="/wordScenery/index.html"/>
+      <url>/wordScenery/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<hr>]]></content>
       
     </entry>
     

@@ -12,6 +12,12 @@
       
       
       
+        <tags>
+            
+            <tag> 随笔、博客 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -44,22 +50,11 @@
     
     
     <entry>
-      <title></title>
-      <link href="/bangumis/index.html"/>
-      <url>/bangumis/index.html</url>
+      <title>人生足迹</title>
+      <link href="/collect/index.html"/>
+      <url>/collect/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<!-- 页面内容 -->]]></content>
       
     </entry>
     
@@ -77,22 +72,22 @@
     
     
     <entry>
-      <title>人生足迹</title>
-      <link href="/collect/index.html"/>
-      <url>/collect/index.html</url>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
-        <content type="html"><![CDATA[<!-- 页面内容 -->]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>世界各地风景</title>
-      <link href="/wordScenery/index.html"/>
-      <url>/wordScenery/index.html</url>
+      <title></title>
+      <link href="/bangumis/index.html"/>
+      <url>/bangumis/index.html</url>
       
-        <content type="html"><![CDATA[<hr>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -121,22 +116,33 @@
     
     
     <entry>
-      <title></title>
-      <link href="/cinemas/index.html"/>
-      <url>/cinemas/index.html</url>
+      <title>music</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<hr>]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>music</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
+      <title>世界各地风景</title>
+      <link href="/wordScenery/index.html"/>
+      <url>/wordScenery/index.html</url>
       
         <content type="html"><![CDATA[<hr>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/cinemas/index.html"/>
+      <url>/cinemas/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     

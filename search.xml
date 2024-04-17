@@ -8,7 +8,7 @@
       <link href="/posts/309.html"/>
       <url>/posts/309.html</url>
       
-        <content type="html"><![CDATA[<h2 id="一、异常处理"><a href="#一、异常处理" class="headerlink" title="一、异常处理"></a>一、异常处理</h2><h3 id="1、万能异常（try-except-Exception）"><a href="#1、万能异常（try-except-Exception）" class="headerlink" title="1、万能异常（try except Exception）"></a>1、万能异常（try except Exception）</h3><p>把可能发生错误的语句放在try模块里，用except来处理异常。except可以处理一个专门的异常，也可以处理一组圆括号中的异常，如果except后没有指定异常，则默认处理所有的异常。每一个try，都必须至少有一个except。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="built_in">int</span>(s1)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(e)</span><br></pre></td></tr></table></figure><h3 id="2、主动触发异常"><a href="#2、主动触发异常" class="headerlink" title="2、主动触发异常"></a>2、主动触发异常</h3><p>python自己定义的内建异常不够用，用户可以自定义异常。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">raise</span> UserError(<span class="string">&quot;自定义异常&quot;</span>)</span><br><span class="line"><span class="keyword">except</span> FError <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(e)</span><br></pre></td></tr></table></figure><p>或者使用Exception将异常信息捕获。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    func(a)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    <span class="keyword">raise</span> Exception(<span class="string">f&quot;错误模块:<span class="subst">&#123;name&#125;</span> \n错误信息: <span class="subst">&#123;<span class="built_in">str</span>(e)&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure><h2 id="二、Python装饰器"><a href="#二、Python装饰器" class="headerlink" title="二、Python装饰器"></a>二、Python装饰器</h2><p>装饰器是给现有的模块增添新的小功能，可以对原函数进行功能扩展，而且还不需要修改原函数的内容，也不需要修改原函数的调用。<strong>装饰器的使用符合了面向对象编程的开放封闭原则。</strong></p><pre><code>开放封闭原则主要体现在两个方面：对扩展开放，意味着有新的需求或变化时，可以对现有代码进行扩展，以适应新的情况。对修改封闭，意味着类一旦设计完成，就可以独立其工作，而不要对类尽任何修改。</code></pre><p>Python之中，万物皆对象，即万物都可传参。那么函数也可以作为函数的参数进行传递的。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">polar_bear</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;我是爱上企鹅的北极熊&quot;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">blog</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;进入blog函数&#x27;</span>)</span><br><span class="line">    name()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;我的博客是 lepzh.top&#x27;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    func = polar_bear  <span class="comment"># 把polar_bear这个函数名赋值给变量func</span></span><br><span class="line">    func()  <span class="comment"># 执行func函数</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;------------&#x27;</span>)</span><br><span class="line">    blog(polar_bear)  </span><br></pre></td></tr></table></figure><p>如果想想知道，这两个函数分别的执行时间是多少，将代码修改如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">polar_bear</span>():</span><br><span class="line">    t1 = time.time()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;我是爱上企鹅的北极熊&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;执行时间为：&quot;</span>, time.time() - t1)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">blog</span>(<span class="params">name</span>):</span><br><span class="line">    t1 = time.time()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;进入blog函数&#x27;</span>)</span><br><span class="line">    name()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;我的博客是 lepzh.top&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;执行时间为：&quot;</span>, time.time() - t1)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    func = polar_bear  <span class="comment"># 把polar_bear这个函数名赋值给变量func</span></span><br><span class="line">    func()  <span class="comment"># 执行func函数</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;------------&#x27;</span>)</span><br><span class="line">    blog(polar_bear)  </span><br><span class="line"></span><br></pre></td></tr></table></figure><p>如果函数数量众多或者函数内容过于复杂，那么逐个给函数添加time计算代码耗时且耗力，由此引出装饰器的使用。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">runtime1</span>(<span class="params">func</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>():</span><br><span class="line">        t1 = time.time()</span><br><span class="line">        func()</span><br><span class="line">        t2 = time.time()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;执行时间为：&#123;:.4&#125; s&quot;</span>.<span class="built_in">format</span>(t2 - t1))</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">runtime2</span>(<span class="params">func</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">        t1 = time.time()</span><br><span class="line">        res = func(*args, **kwargs)</span><br><span class="line">        t2 = time.time()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;执行时间为：&#123;:.4&#125; s&quot;</span>.<span class="built_in">format</span>(t2 - t1))</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@runtime1</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">polar_bear</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;我是爱上企鹅的北极熊&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@runtime2</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">blog</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;进入blog函数&#x27;</span>)</span><br><span class="line">    name()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;我的博客是 lepzh.top&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    mine = polar_bear  <span class="comment"># 把polar_bear这个函数名赋值给变量func</span></span><br><span class="line">    mine()  <span class="comment"># 执行func函数</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;------------&#x27;</span>)</span><br><span class="line">    blog(polar_bear)  <span class="comment"># 把polar_bear函数作为参数传入blog函数</span></span><br></pre></td></tr></table></figure><p>在runtime2()中，wrapper函数的参数为*args和<strong>kwargs，</strong>表示可以接受任意参数形式**。该装饰器普遍适用于函数有参数以及返回值的时候。</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="一、异常处理"><a href="#一、异常处理" class="headerlink" title="一、异常处理"></a>一、异常处理</h2><h3 id="1、万能异常（try-except-Exception）"><a href="#1、万能异常（try-except-Exception）" class="headerlink" title="1、万能异常（try except Exception）"></a>1、万能异常（try except Exception）</h3><p>把可能发生错误的语句放在try模块里，用except来处理异常。except可以处理一个专门的异常，也可以处理一组圆括号中的异常，如果except后没有指定异常，则默认处理所有的异常。每一个try，都必须至少有一个except。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="built_in">int</span>(s1)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(e)</span><br></pre></td></tr></table></figure><h3 id="2、主动触发异常"><a href="#2、主动触发异常" class="headerlink" title="2、主动触发异常"></a>2、主动触发异常</h3><p>python自己定义的内建异常不够用，用户可以自定义异常。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">raise</span> UserError(<span class="string">&quot;自定义异常&quot;</span>)</span><br><span class="line"><span class="keyword">except</span> FError <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(e)</span><br></pre></td></tr></table></figure><p>或者使用Exception将异常信息捕获。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    func(a)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    <span class="keyword">raise</span> Exception(<span class="string">f&quot;错误模块:<span class="subst">&#123;name&#125;</span> \n错误信息: <span class="subst">&#123;<span class="built_in">str</span>(e)&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure><h2 id="二、Python装饰器"><a href="#二、Python装饰器" class="headerlink" title="二、Python装饰器"></a>二、Python装饰器</h2><p>装饰器是给现有的模块增添新的小功能，可以对原函数进行功能扩展，而且还不需要修改原函数的内容，也不需要修改原函数的调用。<strong>装饰器的使用符合了面向对象编程的开放封闭原则。</strong></p><pre><code>开放封闭原则主要体现在两个方面：对扩展开放，意味着有新的需求或变化时，可以对现有代码进行扩展，以适应新的情况。对修改封闭，意味着类一旦设计完成，就可以独立其工作，而不要对类尽任何修改。</code></pre><p>Python之中，万物皆对象，即万物都可传参。那么函数也可以作为函数的参数进行传递的。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">polar_bear</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;我是爱上企鹅的北极熊&quot;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">blog</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;进入blog函数&#x27;</span>)</span><br><span class="line">    name()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;我的博客是 lepzh.top&#x27;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    func = polar_bear  <span class="comment"># 把polar_bear这个函数名赋值给变量func</span></span><br><span class="line">    func()  <span class="comment"># 执行func函数</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;------------&#x27;</span>)</span><br><span class="line">    blog(polar_bear)  </span><br></pre></td></tr></table></figure><p>如果想知道，这两个函数分别的执行时间是多少，将代码修改如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">polar_bear</span>():</span><br><span class="line">    t1 = time.time()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;我是爱上企鹅的北极熊&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;执行时间为：&quot;</span>, time.time() - t1)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">blog</span>(<span class="params">name</span>):</span><br><span class="line">    t1 = time.time()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;进入blog函数&#x27;</span>)</span><br><span class="line">    name()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;我的博客是 lepzh.top&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;执行时间为：&quot;</span>, time.time() - t1)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    func = polar_bear  <span class="comment"># 把polar_bear这个函数名赋值给变量func</span></span><br><span class="line">    func()  <span class="comment"># 执行func函数</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;------------&#x27;</span>)</span><br><span class="line">    blog(polar_bear)  </span><br><span class="line"></span><br></pre></td></tr></table></figure><p>如果函数数量众多或者函数内容过于复杂，那么逐个给函数添加time计算代码耗时且耗力，由此引出装饰器的使用。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">runtime1</span>(<span class="params">func</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>():</span><br><span class="line">        t1 = time.time()</span><br><span class="line">        func()</span><br><span class="line">        t2 = time.time()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;执行时间为：&#123;:.4&#125; s&quot;</span>.<span class="built_in">format</span>(t2 - t1))</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">runtime2</span>(<span class="params">func</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">        t1 = time.time()</span><br><span class="line">        res = func(*args, **kwargs)</span><br><span class="line">        t2 = time.time()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;执行时间为：&#123;:.4&#125; s&quot;</span>.<span class="built_in">format</span>(t2 - t1))</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@runtime1</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">polar_bear</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;我是爱上企鹅的北极熊&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@runtime2</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">blog</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;进入blog函数&#x27;</span>)</span><br><span class="line">    name()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;我的博客是 lepzh.top&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    mine = polar_bear  <span class="comment"># 把polar_bear这个函数名赋值给变量func</span></span><br><span class="line">    mine()  <span class="comment"># 执行func函数</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;------------&#x27;</span>)</span><br><span class="line">    blog(polar_bear)  <span class="comment"># 把polar_bear函数作为参数传入blog函数</span></span><br></pre></td></tr></table></figure><p>在runtime2()中，wrapper函数的参数为*args和<strong>kwargs，</strong>表示可以接受任意参数形式**。该装饰器普遍适用于函数有参数以及返回值的时候。</p>]]></content>
       
       
       <categories>
@@ -20,7 +20,7 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
+            <tag> 学习笔记 </tag>
             
             <tag> Python </tag>
             
@@ -47,11 +47,44 @@
     
     
     <entry>
+      <title>关于本人</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>分类</title>
       <link href="/categories/index.html"/>
       <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[<hr>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/bangumis/index.html"/>
+      <url>/bangumis/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>人生足迹</title>
+      <link href="/collect/index.html"/>
+      <url>/collect/index.html</url>
+      
+        <content type="html"><![CDATA[<!-- 页面内容 -->]]></content>
       
     </entry>
     
@@ -91,22 +124,22 @@
     
     
     <entry>
-      <title></title>
-      <link href="/cinemas/index.html"/>
-      <url>/cinemas/index.html</url>
+      <title>music</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<hr>]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>世界各地风景</title>
-      <link href="/wordScenery/index.html"/>
-      <url>/wordScenery/index.html</url>
+      <title></title>
+      <link href="/cinemas/index.html"/>
+      <url>/cinemas/index.html</url>
       
-        <content type="html"><![CDATA[<hr>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -124,44 +157,11 @@
     
     
     <entry>
-      <title>music</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
+      <title>世界各地风景</title>
+      <link href="/wordScenery/index.html"/>
+      <url>/wordScenery/index.html</url>
       
         <content type="html"><![CDATA[<hr>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>关于本人</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>人生足迹</title>
-      <link href="/collect/index.html"/>
-      <url>/collect/index.html</url>
-      
-        <content type="html"><![CDATA[<!-- 页面内容 -->]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/bangumis/index.html"/>
-      <url>/bangumis/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
       
     </entry>
     

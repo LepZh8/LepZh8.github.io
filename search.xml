@@ -8,7 +8,7 @@
       <link href="/posts/423.html"/>
       <url>/posts/423.html</url>
       
-        <content type="html"><![CDATA[<h2 id="一、工作原理"><a href="#一、工作原理" class="headerlink" title="一、工作原理"></a>一、工作原理</h2><h3 id="1、简述"><a href="#1、简述" class="headerlink" title="1、简述"></a>1、简述</h3><p>半导体激光器，又称为激光二极管，是用直接带隙半导体为光学增益介质的激光器，其本质是具有光反馈结构的二极管。</p><p>激光Laser的英文全称为<strong>Light Amplification by Stimulated Emission of Radiation</strong>，直译过来就是受激辐射光放大，听起来有点别扭，却精确表达了激光产生的原理。</p><p>原子中处于高能态的电子，在没有任何外界光子作用下，有一定概率会自发地从高能态向低能态跃迁，损失的能量会以光子的形式辐射出来，这个过程称之为自发辐射，如上图（b）所示。</p><p>原子中处于低能态的电子，也不是吃素的，随时在观察身边是不是有外来光子经过，一旦有能量恰好等于两个能级之间能量差（E2-E1）的光子出现时，就会启动“吸星大法”，将光子的能量吸收过来，用来将自己提升到高能态，这一过程称为受激吸收，如上图（a）所示。</p><p>原子中处于高能态的电子，在见到上述外来光子时，也不会无动于衷，在辐射场能量够大后，自己将向低能态跃迁并辐射出一个和外来光子具有相同频率、相位、偏振方向及传播方向的光子，听起来有点像私奔，这个过程称之为受激辐射，如上图（c）所示。</p><p>这样，通过一次受激辐射，一个光子变为两个相同的光子，这意味着光被放大了。虽然这种现象连起来叫受激辐射光放大，但此时的光还不能称为激光。这是因为自然条件下，原子中处于高能态的电子数目总是比低能态的电子数目少，所以外来光子经过，你很难保证是被低能态电子吸收发生受激吸收，还是被高能态电子看上，发生受激辐射。如果想要原子内部产生更多的受激辐射过程，就需要外界提供能量打破热平衡，从而使高能态和低能态电子数出现反转。</p><p>为了实现这个过程，我们需要三个要件，包括泵浦源(pumping source)、增益介质(Gain medium)以及谐振腔(Cavity)。当泵浦源打入后，光就会在两面镜子形成的共振腔内反覆来回振荡，当光经过介质时，介质会让光变得越来越强，产生高强度的“激光”，而你可以想像其中一面镜子的防护没有那么严密(P型DBR)，当光束放大到可以穿透部分反射镜的阈值时，会从部分反射镜中透射出来，形成激光束。</p><p>因此，半导体激光器的工作原理是：</p><pre><code>以一定的激励方式，在能带之间或能带与杂质能级之间实现非平衡载流子的粒子数反转。当粒子数反转时，大量电子和空穴符合并受激发射出激光。</code></pre><h3 id="2、激光产生条件"><a href="#2、激光产生条件" class="headerlink" title="2、激光产生条件"></a>2、激光产生条件</h3><p><strong>1、粒子数反转：</strong><br>建立起激射媒质（有源区）内载流子的反转分布。在半导体中代表电子能量的是由一系列接近于连续的能级所组成的能带，因此在半导体中要实现粒子数反转，必须在两个能带区域之间，处在高能态导带底的电子数比处在低能态价带顶的空穴数大很多，这靠给同质结或异质结加正向偏压，向有源层内注人必要的载流子来实现，将电子从能量较低的价带激发到能量较高的导带中去。当处于粒子数反转状态的大量电子与空穴复合时，便产生受激发射作用。</p><p><strong>2、要有谐振腔，能起到光反馈作用，形成激光振荡:</strong><br>要实际获得相干受激辐射，必须使受激辐射在光学谐振腔内得到多次反馈而形成激光振荡，激光器的谐振腔是由半导体晶体的自然解理面作为反射镜形成的，通常在不出光的那一端镀上高反多层介质膜，而出光面镀上减反膜。对F-P腔（法布里-珀罗腔）半导体激光器可以很方便地利用晶体的与P－N结平面相垂直的自然解理面构成F-P腔。</p><p><strong>3、产生激光还必须满足阈值条件，即增益要大于总的损耗:</strong><br>为了形成稳定振荡，激光媒质必须能提供足够大的增益，以弥补谐振腔引起的光损耗及从腔面的激光输出等引起的损耗，不断增加腔内的光场。这就必须要有足够强的电流注人，即有足够的粒子数反转，粒子数反转程度越高，得到的增益就越大，即要求必须满足一定的电流阀值条件。当激光器达到阀值时，具有特定波长的光就能在腔内谐振并被放大，最后形成激光而连续地输出。</p><h2 id="二、半导体激光器特性"><a href="#二、半导体激光器特性" class="headerlink" title="二、半导体激光器特性"></a>二、半导体激光器特性</h2><p>半导体激光器是以半导体材料为工作物质的一类激光器件。它诞生于1962年，除了具有激光器的共同特点外，还具有以下优点：</p><p>（1） 体积小，重量轻；<br>（2） 驱动功率和电流较低；<br>（3） 效率高、工作寿命长；<br>（4） 可直接电调制；<br>（5） 易于与各种光电子器件实现光电子集成；<br>（6） 与半导体制造技术兼容；可大批量生产。</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="一、工作原理"><a href="#一、工作原理" class="headerlink" title="一、工作原理"></a>一、工作原理</h2><h3 id="1、简述"><a href="#1、简述" class="headerlink" title="1、简述"></a>1、简述</h3><p>半导体激光器，又称为激光二极管，是用直接带隙半导体为光学增益介质的激光器，其本质是具有光反馈结构的二极管。<br>激光Laser的英文全称为<strong>Light Amplification by Stimulated Emission of Radiation</strong>，直译过来就是受激辐射光放大，听起来有点别扭，却精确表达了激光产生的原理。<br><a href="https://imgse.com/i/pk9UlZQ"><img src="https://s21.ax1x.com/2024/04/23/pk9UlZQ.webp" alt="pk9UlZQ.webp"></a><br>原子中处于高能态的电子，在没有任何外界光子作用下，有一定概率会自发地从高能态向低能态跃迁，损失的能量会以光子的形式辐射出来，这个过程称之为自发辐射，如上图（b）所示。</p><p>原子中处于低能态的电子，也不是吃素的，随时在观察身边是不是有外来光子经过，一旦有能量恰好等于两个能级之间能量差（E2-E1）的光子出现时，就会启动“吸星大法”，将光子的能量吸收过来，用来将自己提升到高能态，这一过程称为受激吸收，如上图（a）所示。</p><p>原子中处于高能态的电子，在见到上述外来光子时，也不会无动于衷，在辐射场能量够大后，自己将向低能态跃迁并辐射出一个和外来光子具有相同频率、相位、偏振方向及传播方向的光子，听起来有点像私奔，这个过程称之为受激辐射，如上图（c）所示。</p><p>这样，通过一次受激辐射，一个光子变为两个相同的光子，这意味着光被放大了。虽然这种现象连起来叫受激辐射光放大，但此时的光还不能称为激光。这是因为自然条件下，原子中处于高能态的电子数目总是比低能态的电子数目少，所以外来光子经过，你很难保证是被低能态电子吸收发生受激吸收，还是被高能态电子看上，发生受激辐射。如果想要原子内部产生更多的受激辐射过程，就需要外界提供能量打破热平衡，从而使高能态和低能态电子数出现反转。</p><p>为了实现这个过程，我们需要三个要件，包括泵浦源(pumping source)、增益介质(Gain medium)以及谐振腔(Cavity)。当泵浦源打入后，光就会在两面镜子形成的共振腔内反覆来回振荡，当光经过介质时，介质会让光变得越来越强，产生高强度的“激光”，而你可以想像其中一面镜子的防护没有那么严密(P型DBR)，当光束放大到可以穿透部分反射镜的阈值时，会从部分反射镜中透射出来，形成激光束。</p><p>因此，半导体激光器的工作原理是：</p><pre><code>以一定的激励方式，在能带之间或能带与杂质能级之间实现非平衡载流子的粒子数反转。当粒子数反转时，大量电子和空穴符合并受激发射出激光。</code></pre><h3 id="2、激光产生条件"><a href="#2、激光产生条件" class="headerlink" title="2、激光产生条件"></a>2、激光产生条件</h3><p><strong>1、粒子数反转：</strong><br>建立起激射媒质（有源区）内载流子的反转分布。在半导体中代表电子能量的是由一系列接近于连续的能级所组成的能带，因此在半导体中要实现粒子数反转，必须在两个能带区域之间，处在高能态导带底的电子数比处在低能态价带顶的空穴数大很多，这靠给同质结或异质结加正向偏压，向有源层内注人必要的载流子来实现，将电子从能量较低的价带激发到能量较高的导带中去。当处于粒子数反转状态的大量电子与空穴复合时，便产生受激发射作用。</p><p><strong>2、要有谐振腔，能起到光反馈作用，形成激光振荡:</strong><br>要实际获得相干受激辐射，必须使受激辐射在光学谐振腔内得到多次反馈而形成激光振荡，激光器的谐振腔是由半导体晶体的自然解理面作为反射镜形成的，通常在不出光的那一端镀上高反多层介质膜，而出光面镀上减反膜。对F-P腔（法布里-珀罗腔）半导体激光器可以很方便地利用晶体的与P－N结平面相垂直的自然解理面构成F-P腔。</p><p><strong>3、产生激光还必须满足阈值条件，即增益要大于总的损耗:</strong><br>为了形成稳定振荡，激光媒质必须能提供足够大的增益，以弥补谐振腔引起的光损耗及从腔面的激光输出等引起的损耗，不断增加腔内的光场。这就必须要有足够强的电流注人，即有足够的粒子数反转，粒子数反转程度越高，得到的增益就越大，即要求必须满足一定的电流阀值条件。当激光器达到阀值时，具有特定波长的光就能在腔内谐振并被放大，最后形成激光而连续地输出。</p><h2 id="二、半导体激光器特性"><a href="#二、半导体激光器特性" class="headerlink" title="二、半导体激光器特性"></a>二、半导体激光器特性</h2><p>半导体激光器是以半导体材料为工作物质的一类激光器件。它诞生于1962年，除了具有激光器的共同特点外，还具有以下优点：</p><p>（1） 体积小，重量轻；<br>（2） 驱动功率和电流较低；<br>（3） 效率高、工作寿命长；<br>（4） 可直接电调制；<br>（5） 易于与各种光电子器件实现光电子集成；<br>（6） 与半导体制造技术兼容；可大批量生产。</p>]]></content>
       
       
       <categories>
@@ -74,17 +74,6 @@
     
     
     <entry>
-      <title>相册集</title>
-      <link href="/album/index.html"/>
-      <url>/album/index.html</url>
-      
-        <content type="html"><![CDATA[<hr>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>关于本人</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
@@ -96,11 +85,11 @@
     
     
     <entry>
-      <title></title>
-      <link href="/bangumis/index.html"/>
-      <url>/bangumis/index.html</url>
+      <title>相册集</title>
+      <link href="/album/index.html"/>
+      <url>/album/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<hr>]]></content>
       
     </entry>
     
@@ -129,6 +118,17 @@
     
     
     <entry>
+      <title></title>
+      <link href="/bangumis/index.html"/>
+      <url>/bangumis/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>日常生活</title>
       <link href="/dailyPhoto/index.html"/>
       <url>/dailyPhoto/index.html</url>
@@ -140,20 +140,31 @@
     
     
     <entry>
-      <title></title>
-      <link href="/cinemas/index.html"/>
-      <url>/cinemas/index.html</url>
+      <title>music</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<hr>]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>music</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
+      <title>标签</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[<hr>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>世界各地风景</title>
+      <link href="/wordScenery/index.html"/>
+      <url>/wordScenery/index.html</url>
       
         <content type="html"><![CDATA[<hr>]]></content>
       
@@ -173,22 +184,11 @@
     
     
     <entry>
-      <title>世界各地风景</title>
-      <link href="/wordScenery/index.html"/>
-      <url>/wordScenery/index.html</url>
+      <title></title>
+      <link href="/cinemas/index.html"/>
+      <url>/cinemas/index.html</url>
       
-        <content type="html"><![CDATA[<hr>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>标签</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[<hr>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     

@@ -8,7 +8,7 @@
       <link href="/posts/251113.html"/>
       <url>/posts/251113.html</url>
       
-        <content type="html"><![CDATA[<h1 id="This指针"><a href="#This指针" class="headerlink" title="This指针"></a>This指针</h1><h2 id="含义："><a href="#含义：" class="headerlink" title="含义："></a>含义：</h2><p>this 是 C++中的一个关键字，也是一个 const指针，它指向当前对象，通过它可以访问当前对象的所有成员。</p><p>所谓当前对象，是指正在使用的对象。例如对于<code>stu.show();</code>，stu 就是当前对象，this 就指向 stu。</p><p>this 只能用在类的内部，通过 this 可以访问类的所有成员，包括 private、protected、public 属性的。</p><h2 id="几点注意："><a href="#几点注意：" class="headerlink" title="几点注意："></a>几点注意：</h2><ul><li>this 是 const 指针，<strong>它的值是不能被修改的</strong>，一切企图修改该指针的操作，如赋值、递增、递减等都是不允许的。</li><li>this 只能在成员函数内部使用，用在其他地方没有意义，也是非法的。</li><li>只有当对象被创建后 this 才有意义，因此不能在 static 成员函数中使用。</li></ul><h2 id="本质是什么："><a href="#本质是什么：" class="headerlink" title="本质是什么："></a>本质是什么：</h2><p>this 实际上是成员函数的一个形参，在调用成员函数时将对象的地址作为实参传递给 this。不过 this 这个形参是隐式的，它并不出现在代码中，而是在编译阶段由编译器默默地将它添加到参数列表中。</p><p>this 作为隐式形参，本质上是成员函数的局部变量，所以只能用在成员函数的内部，并且只有在通过对象调用成员函数时才给 this 赋值。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="This指针"><a href="#This指针" class="headerlink" title="This指针"></a>This指针</h1><h2 id="含义："><a href="#含义：" class="headerlink" title="含义："></a>含义：</h2><p>this 是 C++中的一个关键字，也是一个 const指针，它指向当前对象，通过它可以访问当前对象的所有成员。</p><p>所谓当前对象，是指正在使用的对象。例如对于<code>stu.show();</code>，stu 就是当前对象，this 就指向 stu。</p><p>this 只能用在类的内部，通过 this 可以访问类的所有成员，包括 private、protected、public 属性的。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">setname</span><span class="params">(<span class="type">char</span> *name)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">setage</span><span class="params">(<span class="type">int</span> age)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">setscore</span><span class="params">(<span class="type">float</span> score)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">char</span> *name;</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="type">float</span> score;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Student::setname</span><span class="params">(<span class="type">char</span> *name)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;name = name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Student::setage</span><span class="params">(<span class="type">int</span> age)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;age = age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Student::setscore</span><span class="params">(<span class="type">float</span> score)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;score = score;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Student::show</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="keyword">this</span>-&gt;name&lt;&lt;<span class="string">&quot;的年龄是&quot;</span>&lt;&lt;<span class="keyword">this</span>-&gt;age&lt;&lt;<span class="string">&quot;，成绩是&quot;</span>&lt;&lt;<span class="keyword">this</span>-&gt;score&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Student *pstu = <span class="keyword">new</span> Student;</span><br><span class="line">    pstu -&gt; <span class="built_in">setname</span>(<span class="string">&quot;李华&quot;</span>);</span><br><span class="line">    pstu -&gt; <span class="built_in">setage</span>(<span class="number">16</span>);</span><br><span class="line">    pstu -&gt; <span class="built_in">setscore</span>(<span class="number">96.5</span>);</span><br><span class="line">    pstu -&gt; <span class="built_in">show</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>运行结果：<br>李华的年龄是16，成绩是96.5</p><h2 id="几点注意："><a href="#几点注意：" class="headerlink" title="几点注意："></a>几点注意：</h2><ul><li>this 是 const 指针，<strong>它的值是不能被修改的</strong>，一切企图修改该指针的操作，如赋值、递增、递减等都是不允许的。</li><li>this 只能在成员函数内部使用，用在其他地方没有意义，也是非法的。</li><li>只有当对象被创建后 this 才有意义，因此不能在 static 成员函数中使用。</li></ul><h2 id="本质是什么："><a href="#本质是什么：" class="headerlink" title="本质是什么："></a>本质是什么：</h2><p>this 实际上是成员函数的一个形参，在调用成员函数时将对象的地址作为实参传递给 this。不过 this 这个形参是隐式的，它并不出现在代码中，而是在编译阶段由编译器默默地将它添加到参数列表中。</p><p>this 作为隐式形参，本质上是成员函数的局部变量，所以只能用在成员函数的内部，并且只有在通过对象调用成员函数时才给 this 赋值。</p>]]></content>
       
       
       <categories>
@@ -153,17 +153,6 @@
     
     
     <entry>
-      <title>关于本人</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>相册集</title>
       <link href="/album/index.html"/>
       <url>/album/index.html</url>
@@ -175,11 +164,11 @@
     
     
     <entry>
-      <title>分类</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>关于本人</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[<hr>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -208,11 +197,11 @@
     
     
     <entry>
-      <title>人生足迹</title>
-      <link href="/collect/index.html"/>
-      <url>/collect/index.html</url>
+      <title>分类</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
-        <content type="html"><![CDATA[<!-- 页面内容 -->]]></content>
+        <content type="html"><![CDATA[<hr>]]></content>
       
     </entry>
     
@@ -230,11 +219,44 @@
     
     
     <entry>
+      <title>人生足迹</title>
+      <link href="/collect/index.html"/>
+      <url>/collect/index.html</url>
+      
+        <content type="html"><![CDATA[<!-- 页面内容 -->]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>即刻短文</title>
       <link href="/essay/index.html"/>
       <url>/essay/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>music</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[<hr>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>世界各地风景</title>
+      <link href="/wordScenery/index.html"/>
+      <url>/wordScenery/index.html</url>
+      
+        <content type="html"><![CDATA[<hr>]]></content>
       
     </entry>
     
@@ -255,28 +277,6 @@
       <title>标签</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[<hr>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>世界各地风景</title>
-      <link href="/wordScenery/index.html"/>
-      <url>/wordScenery/index.html</url>
-      
-        <content type="html"><![CDATA[<hr>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>music</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
       
         <content type="html"><![CDATA[<hr>]]></content>
       

@@ -1618,19 +1618,19 @@ document.addEventListener("DOMContentLoaded", function () {
               toRandomPost();
               break;
             case 72:
-              pjax.loadUrl("/");
+              pjax.loadUrl(GLOBAL_CONFIG.root);
               break;
             case 68:
               rightSideFn.darkmode();
               break;
             case 70:
-              pjax.loadUrl("/fcircle/");
+              pjax.loadUrl(GLOBAL_CONFIG.root + "fcircle/");
               break;
             case 76:
-              pjax.loadUrl("/link/");
+              pjax.loadUrl(GLOBAL_CONFIG.root + "link/");
               break;
             case 80:
-              pjax.loadUrl("/about/");
+              pjax.loadUrl(GLOBAL_CONFIG.root + "about/");
               break;
             default:
               break;

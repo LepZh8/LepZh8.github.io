@@ -756,7 +756,7 @@ const anzhiyu = {
     }
 
     // 否则重新从服务器获取数据
-    fetch("/json/music.json")
+    fetch(GLOBAL_CONFIG.root + "json/music.json")
       .then(response => response.json())
       .then(songs => {
         const cacheData = {
@@ -841,7 +841,7 @@ const anzhiyu = {
   },
   // 获取自定义播放列表
   getCustomPlayList: function () {
-    if (!window.location.pathname.startsWith("/music/")) {
+    if (!window.location.pathname.startsWith(GLOBAL_CONFIG.root + "music/")) {
       return;
     }
     const urlParams = new URLSearchParams(window.location.search);
@@ -890,7 +890,7 @@ const anzhiyu = {
     });
 
     function anMusicPageMenuAask() {
-      if (window.location.pathname != "/music/") {
+      if (window.location.pathname != GLOBAL_CONFIG.root + "music/") {
         document.getElementById("menu-mask").removeEventListener("click", anMusicPageMenuAask);
         return;
       }
@@ -973,7 +973,7 @@ const anzhiyu = {
         songs = cacheData.songs;
       } else {
         // 否则重新从服务器获取数据
-        const response = await fetch("/json/music.json");
+        const response = await fetch(GLOBAL_CONFIG.root + "json/music.json");
         songs = await response.json();
         cacheData.timestamp = currentTime;
         cacheData.songs = songs;
@@ -1011,8 +1011,8 @@ const anzhiyu = {
       pageNumber = Number(toPageText.value);
 
     if (!isNaN(pageNumber) && pageNumber >= 1 && Number.isInteger(pageNumber)) {
-      var url = "/page/" + (pageNumber > lastPageNumber ? lastPageNumber : pageNumber) + "/";
-      toPageButton.href = pageNumber === 1 ? "/" : url;
+      var url = GLOBAL_CONFIG.root + "page/" + (pageNumber > lastPageNumber ? lastPageNumber : pageNumber) + "/";
+      toPageButton.href = pageNumber === 1 ? GLOBAL_CONFIG.root : url;
     } else {
       toPageButton.href = "javascript:void(0);";
     }
@@ -1146,6 +1146,8 @@ const anzhiyu = {
 
   // 创建二维码
   qrcodeCreate: function () {
+    // A failed third-party CDN must not abort the rest of the theme initialization.
+    if (typeof QRCode === "undefined") return;
     if (document.getElementById("qrcode")) {
       document.getElementById("qrcode").innerHTML = "";
       var qrcode = new QRCode(document.getElementById("qrcode"), {
@@ -1281,7 +1283,7 @@ const anzhiyu = {
   },
   // 分类条
   categoriesBarActive: function () {
-    const urlinfo = decodeURIComponent(window.location.pathname);
+    const urlinfo = "/" + decodeURIComponent(window.location.pathname).slice(GLOBAL_CONFIG.root.length);
     const $categoryBar = document.getElementById("category-bar");
     if (!$categoryBar) return;
 

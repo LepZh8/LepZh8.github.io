@@ -407,7 +407,7 @@ function addRightMenuClickEvent() {
 
   document.getElementById("menu-home") &&
     document.getElementById("menu-home").addEventListener("click", function () {
-      window.location.href = window.location.origin;
+      window.location.href = GLOBAL_CONFIG.root;
     });
 
   document.getElementById("menu-randomPost").addEventListener("click", function () {

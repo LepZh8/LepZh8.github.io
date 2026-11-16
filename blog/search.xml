@@ -5,8 +5,8 @@
     
     <entry>
       <title>C++引用</title>
-      <link href="/posts/251112.html"/>
-      <url>/posts/251112.html</url>
+      <link href="/blog/posts/251113.html"/>
+      <url>/blog/posts/251113.html</url>
       
         <content type="html"><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2>]]></content>
       
@@ -32,8 +32,8 @@
     
     <entry>
       <title>C++类和对象</title>
-      <link href="/posts/251112.html"/>
-      <url>/posts/251112.html</url>
+      <link href="/blog/posts/251112.html"/>
+      <url>/blog/posts/251112.html</url>
       
         <content type="html"><![CDATA[<h1 id="This指针"><a href="#This指针" class="headerlink" title="This指针"></a>This指针</h1><h2 id="含义："><a href="#含义：" class="headerlink" title="含义："></a>含义：</h2><p>this 是 C++中的一个关键字，也是一个 const指针，它指向当前对象，通过它可以访问当前对象的所有成员。</p><p>所谓当前对象，是指正在使用的对象。例如对于<code>stu.show();</code>，stu 就是当前对象，this 就指向 stu。</p><p>this 只能用在类的内部，通过 this 可以访问类的所有成员，包括 private、protected、public 属性的。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">setname</span><span class="params">(<span class="type">char</span> *name)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">setage</span><span class="params">(<span class="type">int</span> age)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">setscore</span><span class="params">(<span class="type">float</span> score)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">char</span> *name;</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="type">float</span> score;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Student::setname</span><span class="params">(<span class="type">char</span> *name)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;name = name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Student::setage</span><span class="params">(<span class="type">int</span> age)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;age = age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Student::setscore</span><span class="params">(<span class="type">float</span> score)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;score = score;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Student::show</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="keyword">this</span>-&gt;name&lt;&lt;<span class="string">&quot;的年龄是&quot;</span>&lt;&lt;<span class="keyword">this</span>-&gt;age&lt;&lt;<span class="string">&quot;，成绩是&quot;</span>&lt;&lt;<span class="keyword">this</span>-&gt;score&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Student *pstu = <span class="keyword">new</span> Student;</span><br><span class="line">    pstu -&gt; <span class="built_in">setname</span>(<span class="string">&quot;李华&quot;</span>);</span><br><span class="line">    pstu -&gt; <span class="built_in">setage</span>(<span class="number">16</span>);</span><br><span class="line">    pstu -&gt; <span class="built_in">setscore</span>(<span class="number">96.5</span>);</span><br><span class="line">    pstu -&gt; <span class="built_in">show</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>运行结果：<br>李华的年龄是16，成绩是96.5</p><h2 id="几点注意："><a href="#几点注意：" class="headerlink" title="几点注意："></a>几点注意：</h2><ul><li>this 是 const 指针，<strong>它的值是不能被修改的</strong>，一切企图修改该指针的操作，如赋值、递增、递减等都是不允许的。</li><li>this 只能在成员函数内部使用，用在其他地方没有意义，也是非法的。</li><li>只有当对象被创建后 this 才有意义，因此不能在 static 成员函数中使用。</li></ul><h2 id="本质是什么："><a href="#本质是什么：" class="headerlink" title="本质是什么："></a>本质是什么：</h2><p>this 实际上是成员函数的一个形参，在调用成员函数时将对象的地址作为实参传递给 this。不过 this 这个形参是隐式的，它并不出现在代码中，而是在编译阶段由编译器默默地将它添加到参数列表中。</p><p>this 作为隐式形参，本质上是成员函数的局部变量，所以只能用在成员函数的内部，并且只有在通过对象调用成员函数时才给 this 赋值。</p>]]></content>
       
@@ -59,8 +59,8 @@
     
     <entry>
       <title>陌上花开</title>
-      <link href="/posts/250324.html"/>
-      <url>/posts/250324.html</url>
+      <link href="/blog/posts/250325.html"/>
+      <url>/blog/posts/250325.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -84,8 +84,8 @@
     
     <entry>
       <title>二月天，杨柳醉春烟</title>
-      <link href="/posts/250324.html"/>
-      <url>/posts/250324.html</url>
+      <link href="/blog/posts/250324.html"/>
+      <url>/blog/posts/250324.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -111,8 +111,8 @@
     
     <entry>
       <title>半导体激光器</title>
-      <link href="/posts/423.html"/>
-      <url>/posts/423.html</url>
+      <link href="/blog/posts/423.html"/>
+      <url>/blog/posts/423.html</url>
       
         <content type="html"><![CDATA[<h2 id="一、工作原理"><a href="#一、工作原理" class="headerlink" title="一、工作原理"></a>一、工作原理</h2><h3 id="1、简述"><a href="#1、简述" class="headerlink" title="1、简述"></a>1、简述</h3><p>半导体激光器，又称为激光二极管，是用直接带隙半导体为光学增益介质的激光器，其本质是具有光反馈结构的二极管。<br>激光Laser的英文全称为<strong>Light Amplification by Stimulated Emission of Radiation</strong>，直译过来就是受激辐射光放大，听起来有点别扭，却精确表达了激光产生的原理。<br><a href="https://imgse.com/i/pk9UlZQ"><img src="https://s21.ax1x.com/2024/04/23/pk9UlZQ.webp" alt="pk9UlZQ.webp"></a><br>原子中处于高能态的电子，在没有任何外界光子作用下，有一定概率会自发地从高能态向低能态跃迁，损失的能量会以光子的形式辐射出来，这个过程称之为自发辐射，如上图（b）所示。</p><p>原子中处于低能态的电子，也不是吃素的，随时在观察身边是不是有外来光子经过，一旦有能量恰好等于两个能级之间能量差（E2-E1）的光子出现时，就会启动“吸星大法”，将光子的能量吸收过来，用来将自己提升到高能态，这一过程称为受激吸收，如上图（a）所示。</p><p>原子中处于高能态的电子，在见到上述外来光子时，也不会无动于衷，在辐射场能量够大后，自己将向低能态跃迁并辐射出一个和外来光子具有相同频率、相位、偏振方向及传播方向的光子，听起来有点像私奔，这个过程称之为受激辐射，如上图（c）所示。</p><p>这样，通过一次受激辐射，一个光子变为两个相同的光子，这意味着光被放大了。虽然这种现象连起来叫受激辐射光放大，但此时的光还不能称为激光。这是因为自然条件下，原子中处于高能态的电子数目总是比低能态的电子数目少，所以外来光子经过，你很难保证是被低能态电子吸收发生受激吸收，还是被高能态电子看上，发生受激辐射。如果想要原子内部产生更多的受激辐射过程，就需要外界提供能量打破热平衡，从而使高能态和低能态电子数出现反转。</p><p>为了实现这个过程，我们需要三个要件，包括泵浦源(pumping source)、增益介质(Gain medium)以及谐振腔(Cavity)。当泵浦源打入后，光就会在两面镜子形成的共振腔内反覆来回振荡，当光经过介质时，介质会让光变得越来越强，产生高强度的“激光”，而你可以想像其中一面镜子的防护没有那么严密(P型DBR)，当光束放大到可以穿透部分反射镜的阈值时，会从部分反射镜中透射出来，形成激光束。</p><p>因此，半导体激光器的工作原理是：</p><pre><code>以一定的激励方式，在能带之间或能带与杂质能级之间实现非平衡载流子的粒子数反转。当粒子数反转时，大量电子和空穴符合并受激发射出激光。</code></pre><h3 id="2、激光产生条件"><a href="#2、激光产生条件" class="headerlink" title="2、激光产生条件"></a>2、激光产生条件</h3><p><strong>1、粒子数反转：</strong><br>建立起激射媒质（有源区）内载流子的反转分布。在半导体中代表电子能量的是由一系列接近于连续的能级所组成的能带，因此在半导体中要实现粒子数反转，必须在两个能带区域之间，处在高能态导带底的电子数比处在低能态价带顶的空穴数大很多，这靠给同质结或异质结加正向偏压，向有源层内注人必要的载流子来实现，将电子从能量较低的价带激发到能量较高的导带中去。当处于粒子数反转状态的大量电子与空穴复合时，便产生受激发射作用。</p><p><strong>2、要有谐振腔，能起到光反馈作用，形成激光振荡:</strong><br>要实际获得相干受激辐射，必须使受激辐射在光学谐振腔内得到多次反馈而形成激光振荡，激光器的谐振腔是由半导体晶体的自然解理面作为反射镜形成的，通常在不出光的那一端镀上高反多层介质膜，而出光面镀上减反膜。对F-P腔（法布里-珀罗腔）半导体激光器可以很方便地利用晶体的与P－N结平面相垂直的自然解理面构成F-P腔。</p><p><strong>3、产生激光还必须满足阈值条件，即增益要大于总的损耗:</strong><br>为了形成稳定振荡，激光媒质必须能提供足够大的增益，以弥补谐振腔引起的光损耗及从腔面的激光输出等引起的损耗，不断增加腔内的光场。这就必须要有足够强的电流注人，即有足够的粒子数反转，粒子数反转程度越高，得到的增益就越大，即要求必须满足一定的电流阀值条件。当激光器达到阀值时，具有特定波长的光就能在腔内谐振并被放大，最后形成激光而连续地输出。</p><h2 id="二、半导体激光器特性"><a href="#二、半导体激光器特性" class="headerlink" title="二、半导体激光器特性"></a>二、半导体激光器特性</h2><p>半导体激光器是以半导体材料为工作物质的一类激光器件。它诞生于1962年，除了具有激光器的共同特点外，还具有以下优点：</p><p>（1） 体积小，重量轻；<br>（2） 驱动功率和电流较低；<br>（3） 效率高、工作寿命长；<br>（4） 可直接电调制；<br>（5） 易于与各种光电子器件实现光电子集成；<br>（6） 与半导体制造技术兼容；可大批量生产。</p>]]></content>
       
@@ -138,8 +138,8 @@
     
     <entry>
       <title>异常处理与装饰器</title>
-      <link href="/posts/417.html"/>
-      <url>/posts/417.html</url>
+      <link href="/blog/posts/417.html"/>
+      <url>/blog/posts/417.html</url>
       
         <content type="html"><![CDATA[<h2 id="一、异常处理"><a href="#一、异常处理" class="headerlink" title="一、异常处理"></a>一、异常处理</h2><h3 id="1、万能异常（try-except-Exception）"><a href="#1、万能异常（try-except-Exception）" class="headerlink" title="1、万能异常（try except Exception）"></a>1、万能异常（try except Exception）</h3><p>把可能发生错误的语句放在try模块里，用except来处理异常。except可以处理一个专门的异常，也可以处理一组圆括号中的异常，如果except后没有指定异常，则默认处理所有的异常。每一个try，都必须至少有一个except。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="built_in">int</span>(s1)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(e)</span><br></pre></td></tr></table></figure><h3 id="2、主动触发异常"><a href="#2、主动触发异常" class="headerlink" title="2、主动触发异常"></a>2、主动触发异常</h3><p>python自己定义的内建异常不够用，用户可以自定义异常。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">raise</span> UserError(<span class="string">&quot;自定义异常&quot;</span>)</span><br><span class="line"><span class="keyword">except</span> FError <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(e)</span><br></pre></td></tr></table></figure><p>或者使用Exception将异常信息捕获。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    func(a)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    <span class="keyword">raise</span> Exception(<span class="string">f&quot;错误模块:<span class="subst">&#123;name&#125;</span> \n错误信息: <span class="subst">&#123;<span class="built_in">str</span>(e)&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure><h2 id="二、Python装饰器"><a href="#二、Python装饰器" class="headerlink" title="二、Python装饰器"></a>二、Python装饰器</h2><p>装饰器是给现有的模块增添新的小功能，可以对原函数进行功能扩展，而且还不需要修改原函数的内容，也不需要修改原函数的调用。<strong>装饰器的使用符合了面向对象编程的开放封闭原则。</strong></p><pre><code>开放封闭原则主要体现在两个方面：对扩展开放，意味着有新的需求或变化时，可以对现有代码进行扩展，以适应新的情况。对修改封闭，意味着类一旦设计完成，就可以独立其工作，而不要对类尽任何修改。</code></pre><p>Python之中，万物皆对象，即万物都可传参。那么函数也可以作为函数的参数进行传递的。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">polar_bear</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;我是爱上企鹅的北极熊&quot;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">blog</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;进入blog函数&#x27;</span>)</span><br><span class="line">    name()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;我的博客是 lepzh.top&#x27;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    func = polar_bear  <span class="comment"># 把polar_bear这个函数名赋值给变量func</span></span><br><span class="line">    func()  <span class="comment"># 执行func函数</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;------------&#x27;</span>)</span><br><span class="line">    blog(polar_bear)  </span><br></pre></td></tr></table></figure><p>如果想知道，这两个函数分别的执行时间是多少，将代码修改如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">polar_bear</span>():</span><br><span class="line">    t1 = time.time()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;我是爱上企鹅的北极熊&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;执行时间为：&quot;</span>, time.time() - t1)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">blog</span>(<span class="params">name</span>):</span><br><span class="line">    t1 = time.time()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;进入blog函数&#x27;</span>)</span><br><span class="line">    name()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;我的博客是 lepzh.top&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;执行时间为：&quot;</span>, time.time() - t1)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    func = polar_bear  <span class="comment"># 把polar_bear这个函数名赋值给变量func</span></span><br><span class="line">    func()  <span class="comment"># 执行func函数</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;------------&#x27;</span>)</span><br><span class="line">    blog(polar_bear)  </span><br><span class="line"></span><br></pre></td></tr></table></figure><p>如果函数数量众多或者函数内容过于复杂，那么逐个给函数添加time计算代码耗时且耗力，由此引出装饰器的使用。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">runtime1</span>(<span class="params">func</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>():</span><br><span class="line">        t1 = time.time()</span><br><span class="line">        func()</span><br><span class="line">        t2 = time.time()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;执行时间为：&#123;:.4&#125; s&quot;</span>.<span class="built_in">format</span>(t2 - t1))</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">runtime2</span>(<span class="params">func</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">        t1 = time.time()</span><br><span class="line">        res = func(*args, **kwargs)</span><br><span class="line">        t2 = time.time()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;执行时间为：&#123;:.4&#125; s&quot;</span>.<span class="built_in">format</span>(t2 - t1))</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@runtime1</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">polar_bear</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;我是爱上企鹅的北极熊&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@runtime2</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">blog</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;进入blog函数&#x27;</span>)</span><br><span class="line">    name()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;我的博客是 lepzh.top&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    mine = polar_bear  <span class="comment"># 把polar_bear这个函数名赋值给变量func</span></span><br><span class="line">    mine()  <span class="comment"># 执行func函数</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;------------&#x27;</span>)</span><br><span class="line">    blog(polar_bear)  <span class="comment"># 把polar_bear函数作为参数传入blog函数</span></span><br></pre></td></tr></table></figure><p>在runtime2()中，wrapper函数的参数为*args和**kwargs，表示可以接受任意参数形式。该装饰器普遍适用于函数有参数以及返回值的时候。</p>]]></content>
       
@@ -165,8 +165,8 @@
     
     <entry>
       <title>时隔两年，个人博客回归</title>
-      <link href="/posts/16107.html"/>
-      <url>/posts/16107.html</url>
+      <link href="/blog/posts/16107.html"/>
+      <url>/blog/posts/16107.html</url>
       
         <content type="html"><![CDATA[<p>豫章故郡，洪都新府。星分翼轸，地接衡庐。襟三江而带五湖，控蛮荆而引瓯越。物华天宝，龙光射牛斗之墟；人杰地灵，徐孺下陈蕃之榻。雄州雾列，俊采星驰。台隍枕夷夏之交，宾主尽东南之美。都督阎公之雅望，棨戟遥临；宇文新州之懿范，襜帷暂驻。十旬休假，胜友如云；千里逢迎，高朋满座。腾蛟起凤，孟学士之词宗；紫电青霜，王将军之武库。家君作宰，路出名区；童子何知，躬逢胜饯。(豫章故郡 一作：南昌故郡；青霜 一作：清霜)</p><p>　　时维九月，序属三秋。潦水尽而寒潭清，烟光凝而暮山紫。俨骖騑于上路，访风景于崇阿。临帝子之长洲，得天人之旧馆。层峦耸翠，上出重霄；飞阁流丹，下临无地。鹤汀凫渚，穷岛屿之萦回；桂殿兰宫，即冈峦之体势。（天人 一作：仙人；层峦 一作：层台；即冈 一作：列冈；飞阁流丹 一作：飞阁翔丹）</p><p>　　披绣闼，俯雕甍，山原旷其盈视，川泽纡其骇瞩。闾阎扑地，钟鸣鼎食之家；舸舰弥津，青雀黄龙之舳。云销雨霁，彩彻区明。落霞与孤鹜齐飞，秋水共长天一色。渔舟唱晚，响穷彭蠡之滨，雁阵惊寒，声断衡阳之浦。(迷津 一作：弥津；云销雨霁，彩彻区明 一作：虹销雨霁，彩彻云衢)</p><p>　　遥襟甫畅，逸兴遄飞。爽籁发而清风生，纤歌凝而白云遏。睢园绿竹，气凌彭泽之樽；邺水朱华，光照临川之笔。四美具，二难并。穷睇眄于中天，极娱游于暇日。天高地迥，觉宇宙之无穷；兴尽悲来，识盈虚之有数。望长安于日下，目吴会于云间。地势极而南溟深，天柱高而北辰远。关山难越，谁悲失路之人；萍水相逢，尽是他乡之客。怀帝阍而不见，奉宣室以何年？(遥襟甫畅 一作：遥吟俯畅)</p><p>　　嗟乎！时运不齐，命途多舛。冯唐易老，李广难封。屈贾谊于长沙，非无圣主；窜梁鸿于海曲，岂乏明时？所赖君子见机，达人知命。老当益壮，宁移白首之心？穷且益坚，不坠青云之志。酌贪泉而觉爽，处涸辙以犹欢。北海虽赊，扶摇可接；东隅已逝，桑榆非晚。孟尝高洁，空余报国之情；阮籍猖狂，岂效穷途之哭！(见机 一作：安贫；以犹欢 一作：而相欢)</p><p>　　勃，三尺微命，一介书生。无路请缨，等终军之弱冠；有怀投笔，慕宗悫之长风。舍簪笏于百龄，奉晨昏于万里。非谢家之宝树，接孟氏之芳邻。他日趋庭，叨陪鲤对；今兹捧袂，喜托龙门。杨意不逢，抚凌云而自惜；钟期既遇，奏流水以何惭？</p><p>　　呜呼！胜地不常，盛筵难再；兰亭已矣，梓泽丘墟。临别赠言，幸承恩于伟饯；登高作赋，是所望于群公。敢竭鄙怀，恭疏短引；一言均赋，四韵俱成。请洒潘江，各倾陆海云尔。</p><p>　　滕王高阁临江渚，佩玉鸣鸾罢歌舞。<br>　　画栋朝飞南浦云，珠帘暮卷西山雨。<br>　　闲云潭影日悠悠，物换星移几度秋。<br>　　阁中帝子今何在？槛外长江空自流。</p>]]></content>
       
@@ -180,33 +180,11 @@
     
     
     <entry>
-      <title>相册集</title>
-      <link href="/album/index.html"/>
-      <url>/album/index.html</url>
-      
-        <content type="html"><![CDATA[<hr>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>关于本人</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title></title>
+      <link href="/blog/bangumis/index.html"/>
+      <url>/blog/bangumis/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>分类</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[<hr>]]></content>
       
     </entry>
     
@@ -214,8 +192,8 @@
     
     <entry>
       <title></title>
-      <link href="/bangumis/index.html"/>
-      <url>/bangumis/index.html</url>
+      <link href="/blog/cinemas/index.html"/>
+      <url>/blog/cinemas/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -224,9 +202,31 @@
     
     
     <entry>
+      <title>关于本人</title>
+      <link href="/blog/about/index.html"/>
+      <url>/blog/about/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>相册集</title>
+      <link href="/blog/album/index.html"/>
+      <url>/blog/album/index.html</url>
+      
+        <content type="html"><![CDATA[<hr>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>人生足迹</title>
-      <link href="/collect/index.html"/>
-      <url>/collect/index.html</url>
+      <link href="/blog/collect/index.html"/>
+      <url>/blog/collect/index.html</url>
       
         <content type="html"><![CDATA[<!-- 页面内容 -->]]></content>
       
@@ -235,9 +235,31 @@
     
     
     <entry>
+      <title>分类</title>
+      <link href="/blog/categories/index.html"/>
+      <url>/blog/categories/index.html</url>
+      
+        <content type="html"><![CDATA[<hr>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>日常生活</title>
+      <link href="/blog/dailyPhoto/index.html"/>
+      <url>/blog/dailyPhoto/index.html</url>
+      
+        <content type="html"><![CDATA[<hr>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title></title>
-      <link href="/json/music.json"/>
-      <url>/json/music.json</url>
+      <link href="/blog/json/music.json"/>
+      <url>/blog/json/music.json</url>
       
         <content type="html"><![CDATA[[{"name":"青花瓷","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.4/青花瓷/青花瓷.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000002eFUFm2XYZ7z_2.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.4/青花瓷/青花瓷.lrc"},{"name":"稻香","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.1/周杰伦/稻香/稻香.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000002Neh8l0uciQZ_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.1/周杰伦/稻香/稻香.lrc"},{"name":"晴天","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/晴天/晴天.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000000MkMni19ClKG_3.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/晴天/晴天.lrc"},{"name":"七里香","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/七里香/七里香.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000003DFRzD192KKD_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/七里香/七里香.lrc"},{"name":"花海","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/花海/花海.flac","cover":"https://y.qq.com/music/photo_new/T002R300x300M000002Neh8l0uciQZ_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/花海/花海.lrc"},{"name":"反方向的钟","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/反方向的钟/反方向的钟.flac","cover":"https://y.qq.com/music/photo_new/T002R300x300M000000f01724fd7TH_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/反方向的钟/反方向的钟.lrc"},{"name":"兰亭序","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.1/周杰伦/兰亭序/兰亭序.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000002Neh8l0uciQZ_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.1/周杰伦/兰亭序/兰亭序.lrc"},{"name":"说好的辛福呢","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/说好的辛福呢/说好的辛福呢.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000002Neh8l0uciQZ_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/说好的辛福呢/说好的幸福呢.lrc"},{"name":"等你下课 (with 杨瑞代)","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.1/周杰伦/等你下课/等你下课.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000003bSL0v4bpKAx_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.1/周杰伦/等你下课/等你下课.lrc"},{"name":"我落泪情绪零碎","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/我落泪情绪零碎/我落泪情绪零碎.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000000bviBl4FjTpO_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/我落泪情绪零碎/我落泪情绪零碎.lrc"},{"name":"听妈妈的话","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/听妈妈的话/听妈妈的话.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000002jLGWe16Tf1H_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.2/听妈妈的话/听妈妈的话.lrc"},{"name":"明明就","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/明明就/明明就.flac","cover":"https://y.qq.com/music/photo_new/T002R300x300M000003Ow85E3pnoqi_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/明明就/明明就.lrc"},{"name":"我是如此相信","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/我是如此相信/我是如此相信.flac","cover":"https://y.qq.com/music/photo_new/T002R300x300M000001hGx1Z0so1YX_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music-jay@1.0.1/我是如此相信/我是如此相信.lrc"},{"name":"发如雪","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.3/发如雪/发如雪.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M0000024bjiL2aocxT_3.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.3/发如雪/发如雪.lrc"},{"name":"以父之名","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.3/以父之名/以父之名.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000000MkMni19ClKG_3.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.3/以父之名/以父之名.lrc"},{"name":"园游会","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.3/园游会/园游会.flac","cover":"https://y.qq.com/music/photo_new/T002R300x300M000003DFRzD192KKD_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.3/园游会/园游会.lrc"},{"name":"本草纲目","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.4/本草纲目/本草纲目.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000002jLGWe16Tf1H_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.4/本草纲目/本草纲目.lrc"},{"name":"龙卷风","artist":"周杰伦","url":"https://npm.elemecdn.com/anzhiyu-music@1.0.4/龙卷风/龙卷风.mp3","cover":"https://y.qq.com/music/photo_new/T002R300x300M000000f01724fd7TH_1.jpg?max_age=2592000","lrc":"https://npm.elemecdn.com/anzhiyu-music@1.0.4/龙卷风/龙卷风.lrc"}]]]></content>
       
@@ -246,31 +268,9 @@
     
     
     <entry>
-      <title>music</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
-      
-        <content type="html"><![CDATA[<hr>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>标签</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[<hr>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>世界各地风景</title>
-      <link href="/wordScenery/index.html"/>
-      <url>/wordScenery/index.html</url>
+      <link href="/blog/tags/index.html"/>
+      <url>/blog/tags/index.html</url>
       
         <content type="html"><![CDATA[<hr>]]></content>
       
@@ -280,8 +280,8 @@
     
     <entry>
       <title>即刻短文</title>
-      <link href="/essay/index.html"/>
-      <url>/essay/index.html</url>
+      <link href="/blog/essay/index.html"/>
+      <url>/blog/essay/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -290,20 +290,20 @@
     
     
     <entry>
-      <title></title>
-      <link href="/cinemas/index.html"/>
-      <url>/cinemas/index.html</url>
+      <title>世界各地风景</title>
+      <link href="/blog/wordScenery/index.html"/>
+      <url>/blog/wordScenery/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<hr>]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>日常生活</title>
-      <link href="/dailyPhoto/index.html"/>
-      <url>/dailyPhoto/index.html</url>
+      <title>music</title>
+      <link href="/blog/music/index.html"/>
+      <url>/blog/music/index.html</url>
       
         <content type="html"><![CDATA[<hr>]]></content>
       

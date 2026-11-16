@@ -183,7 +183,7 @@ window.addEventListener("load", () => {
 
               // highlight all keywords
               keywords.forEach(keyword => {
-                const regS = new RegExp(keyword, "gi");
+                const regS = new RegExp(keyword.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
                 matchContent = matchContent.replace(regS, '<span class="search-keyword">' + keyword + "</span>");
                 dataTitle = dataTitle.replace(regS, '<span class="search-keyword">' + keyword + "</span>");
               });
@@ -232,9 +232,9 @@ window.addEventListener("load", () => {
                   const element = dataTags[i].trim();
 
                   str +=
-                    '<a class="tag-list" href="/tags/' +
-                    element +
-                    '/" data-pjax-state="" one-link-mark="yes">#' +
+                    '<a class="tag-list" href="' +
+                    (GLOBAL_CONFIG.localSearch.tagUrls[element] || GLOBAL_CONFIG.root + 'tags/') +
+                    '" data-pjax-state="" one-link-mark="yes">#' +
                     element +
                     "</a>";
                 }

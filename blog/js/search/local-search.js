@@ -118,6 +118,7 @@ window.addEventListener("load", () => {
       // perform local searching
       dataObj.then(data => {
         data.forEach(data => {
+          if (window.LEP_BLOG_ACCESS?.isPost(data.url) && document.documentElement.dataset.lepBlogMode !== 'full') return;
           let isMatch = true;
           let dataTitle = data.title ? data.title.trim().toLowerCase() : "";
           let dataTags = data.tags;
